@@ -21,7 +21,7 @@ def createTemplate(cards, cardSize, cardBack, name, index):
 
 	template.paste(cardBack, (xLength - cardSize["x"], yLength - cardSize["y"]))
 
-	template.save(name + "_" + str(index) + ".png")
+	template.save(name + "_" + str(index) + " (" + str(xCards) + ", " + str(yCards) + ").png")
 
 def createDeck(deck):
 	cardSize = deck["cardSize"]
