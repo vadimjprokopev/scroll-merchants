@@ -8,7 +8,6 @@ import json
 from copy import deepcopy
 
 def createTemplate(cards, cardSize, cardBack, name, index):
-
 	xCards = 10 if len(cards) > 19 else max(2, (len(cards) + 2) // 2)
 	yCards = max(2, len(cards) // 10 + 1)
 
@@ -26,7 +25,15 @@ def createTemplate(cards, cardSize, cardBack, name, index):
 
 def createDeck(deck):
 	cardSize = deck["cardSize"]
-	addons = deck["addons"]
+
+	addons = []
+	name = deck["name"]
+
+	try:
+		addons = deck["addons"]
+	except Exception as e:
+		pass
+	
 	cards = []
 
 	for card in deck["cards"]:
@@ -35,10 +42,12 @@ def createDeck(deck):
 	cardBack = createCardBack(deck["name"], cardSize)
 
 	for i in range(0, len(cards), 69):
-		createTemplate(cards[i:i + 69], cardSize, cardBack, deck["name"], i // 69)
+		createTemplate(cards[i:i + 69], cardSize, cardBack, name, i // 69)
+
+	cardBack.save(name + "_back.png")
 
 def createCard(card, cardSize, addons):
-	font = ImageFont.truetype("C:\Windows\Fonts\Calibri.ttf", 25)
+	font = ImageFont.truetype("C:\Windows\Fonts\Calibri.ttf", 15)
 
 	img = Image.new("RGBA", (cardSize["x"], cardSize["y"]), (200,200,200))
 	draw = ImageDraw.Draw(img)
