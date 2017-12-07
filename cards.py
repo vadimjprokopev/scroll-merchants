@@ -9,13 +9,16 @@ from copy import deepcopy
 
 def createTemplate(cards, cardSize, cardBack, name, index):
 
-	xLength = cardSize["x"] * 10
-	yLength = cardSize["y"] * max(2, len(cards) // 10 + 1)
+	xCards = 10 if len(cards) > 19 else max(2, (len(cards) + 2) // 2)
+	yCards = max(2, len(cards) // 10 + 1)
+
+	xLength = cardSize["x"] * xCards
+	yLength = cardSize["y"] * yCards
 
 	template = Image.new("RGBA", (xLength, yLength))
 
 	for i, card in enumerate(cards):
-		template.paste(card, (cardSize["x"] * (i % 10), cardSize["y"] * (i // 10)))
+		template.paste(card, (cardSize["x"] * (i % xCards), cardSize["y"] * (i // xCards)))
 
 	template.paste(cardBack, (xLength - cardSize["x"], yLength - cardSize["y"]))
 
@@ -33,8 +36,6 @@ def createDeck(deck):
 
 	for i in range(0, len(cards), 69):
 		createTemplate(cards[i:i + 69], cardSize, cardBack, deck["name"], i // 69)
-
-	print(cards)
 
 def createCard(card, cardSize, addons):
 	font = ImageFont.truetype("C:\Windows\Fonts\Calibri.ttf", 25)
@@ -55,7 +56,6 @@ def createCard(card, cardSize, addons):
 			newDraw = ImageDraw.Draw(newImg)
 
 			for text in addons[cardType]:
-				print(text)
 				newDraw.text((text["x"], text["y"]), text["text"], (0,0,0), font=font)
 			cardArray += [newImg] * amount
 
