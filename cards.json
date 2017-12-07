@@ -218,5 +218,89 @@
 				]
 			}
 		]
+	},
+	{
+		"name" : "customers",
+
+		"cardSize" : {
+			"x" : 240,
+			"y" : 320
+		},
+
+		"addons" : {
+			"small" : [
+				{
+					"x" : 180,
+					"y" : 5,
+					"text" : "1 point"
+				}
+			],
+			"big" : [
+				{
+					"x" : 180,
+					"y" : 5,
+					"text" : "2 points"
+				}
+			]
+		},
+
+		"cards" : [
+			{
+				"typesAmount" : {
+					"small" : 3,
+					"big" : 1
+				},
+
+				"texts" : [
+					{
+						"x" : 5,
+						"y" : 65,
+						"text" : "Heal"
+					}
+				]
+			},
+			{
+				"typesAmount" : {
+					"small" : 3,
+					"big" : 1
+				},
+
+				"texts" : [
+					{
+						"x" : 5,
+						"y" : 125,
+						"text" : "Damage"
+					}
+				]
+			},
+			{
+				"typesAmount" : {
+					"small" : 3,
+					"big" : 1
+				},
+
+				"texts" : [
+					{
+						"x" : 5,
+						"y" : 185,
+						"text" : "Illuminance"
+					}
+				]
+			},
+			{
+				"typesAmount" : {
+					"small" : 3,
+					"big" : 1
+				},
+
+				"texts" : [
+					{
+						"x" : 5,
+						"y" : 245,
+						"text" : "Growth"
+					}
+				]
+			}
+		]
 	}
 ]
