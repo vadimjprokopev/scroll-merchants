@@ -1,5 +1,68 @@
 [
 	{
+		"name" : "scrolls",
+
+		"cardSize" : {
+			"x" : 240,
+			"y" : 320
+		},
+
+		"cards" : [
+			{
+				"typesAmount" : {
+					"normal" : 4
+				},
+
+				"texts" : [
+					{
+						"x" : 45,
+						"y" : 45,
+						"text" : "Requires 2 of the same elements"
+					}
+				]
+			},
+			{
+				"typesAmount" : {
+					"normal" : 4
+				},
+
+				"texts" : [
+					{
+						"x" : 45,
+						"y" : 45,
+						"text" : "Requires 3 elements"
+					}
+				]
+			},
+			{
+				"typesAmount" : {
+					"normal" : 4
+				},
+
+				"texts" : [
+					{
+						"x" : 45,
+						"y" : 45,
+						"text" : "Requires 2 of different elements"
+					}
+				]
+			},
+			{
+				"typesAmount" : {
+					"normal" : 4
+				},
+
+				"texts" : [
+					{
+						"x" : 45,
+						"y" : 45,
+						"text" : "Negatives are positives"
+					}
+				]
+			}
+		]
+	},
+	{
 		"name" : "elements",
 
 		"cardSize" : {
