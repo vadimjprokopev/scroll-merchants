@@ -47,7 +47,7 @@ def createDeck(deck):
 	cardBack.save(name + "_back.png")
 
 def createCard(card, cardSize, addons):
-	font = ImageFont.truetype("C:\Windows\Fonts\Calibri.ttf", 15)
+	font = ImageFont.truetype("C:\Windows\Fonts\Calibri.ttf", 21)
 
 	img = Image.new("RGBA", (cardSize["x"], cardSize["y"]), (200,200,200))
 	draw = ImageDraw.Draw(img)

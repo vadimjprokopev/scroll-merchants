@@ -17,7 +17,7 @@
 					{
 						"x" : 45,
 						"y" : 45,
-						"text" : "Requires 2 of the same elements"
+						"text" : "Requires 2 of\nthe same element"
 					}
 				]
 			},
@@ -43,7 +43,7 @@
 					{
 						"x" : 45,
 						"y" : 45,
-						"text" : "Requires 2 of different elements"
+						"text" : "Requires 2 of \ndifferent elements"
 					}
 				]
 			},
@@ -230,14 +230,14 @@
 		"addons" : {
 			"small" : [
 				{
-					"x" : 180,
+					"x" : 140,
 					"y" : 5,
 					"text" : "1 point"
 				}
 			],
 			"big" : [
 				{
-					"x" : 180,
+					"x" : 140,
 					"y" : 5,
 					"text" : "2 points"
 				}
