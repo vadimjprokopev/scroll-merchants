@@ -33,22 +33,22 @@ def createDeck(deck):
 		addons = deck["addons"]
 	except Exception as e:
 		pass
-	
+
 	cards = []
 
-	for card in deck["cards"]:
-		cards += createCard(card, cardSize, addons)
+	font = ImageFont.truetype("GeosansLight-Oblique.ttf", 21)
 
-	cardBack = createCardBack(deck["name"], cardSize)
+	for card in deck["cards"]:
+		cards += createCard(card, cardSize, addons, font)
+
+	cardBack = createCardBack(deck["name"], cardSize, font)
 
 	for i in range(0, len(cards), 69):
 		createTemplate(cards[i:i + 69], cardSize, cardBack, name, i // 69)
 
 	cardBack.save(name + "_back.png")
 
-def createCard(card, cardSize, addons):
-	font = ImageFont.truetype("C:\Windows\Fonts\Calibri.ttf", 21)
-
+def createCard(card, cardSize, addons, font):
 	img = Image.new("RGBA", (cardSize["x"], cardSize["y"]), (200,200,200))
 	draw = ImageDraw.Draw(img)
 
@@ -70,9 +70,7 @@ def createCard(card, cardSize, addons):
 
 	return cardArray
 
-def createCardBack(back, cardSize):
-	font = ImageFont.truetype("C:\Windows\Fonts\Calibri.ttf",25)
-
+def createCardBack(back, cardSize, font):
 	img = Image.new("RGBA", (cardSize["x"], cardSize["y"]),(200,200,200))
 	draw = ImageDraw.Draw(img)
 
