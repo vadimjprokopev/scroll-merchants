@@ -3,16 +3,16 @@
 </template>
 
 <script>
-export default {
-	props: {
-		cardElement: Object
-	},
-	computed : {
-		style () {
-			return 'left: ' + this.cardElement.x + 'px; top: ' + this.cardElement.y + 'px;'; 
-		}
-	},
-}
+	export default {
+		props: {
+			cardElement: Object
+		},
+		computed : {
+			style () {
+				return 'left: ' + this.cardElement.x + 'px; top: ' + this.cardElement.y + 'px;'; 
+			}
+		},
+	}
 </script>
 
 <style scoped>

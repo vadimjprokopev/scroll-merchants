@@ -10,9 +10,9 @@
 </template>
 
 <script>
-export default {
-	props: {
-		cardElement: Object
+	export default {
+		props: {
+			cardElement: Object
+		}
 	}
-}
 </script>

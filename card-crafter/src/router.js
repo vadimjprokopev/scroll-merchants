@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Decks from './views/Decks.vue'
+import Main from './views/Main.vue'
 import Deck from './views/Deck.vue'
-import CardTexts from './views/CardTexts.vue'
+import Flavour from './views/Flavour.vue'
 
 Vue.use(Router)
 
@@ -10,15 +10,15 @@ export default new Router({
 	routes: [
 		{
 			path: '/',
-			component: Decks
+			component: Main
 		},
 		{
-			path : '/deck/:deckName',
+			path : '/deck/:deckIndex',
 			component : Deck
 		},
 		{
-			path : '/deck/:deckName/flavour/:flavourName',
-			component : CardTexts
+			path : '/flavour/:flavourIndex',
+			component : Flavour
 		}
 	]
 })

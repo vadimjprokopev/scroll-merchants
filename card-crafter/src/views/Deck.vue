@@ -1,10 +1,19 @@
 <template>
 	<div>
-		<div v-for='(flavour, flavourName) in $root.decks[$route.params.deckName].flavours' :key='flavourName'>
-			<p> {{ flavourName }} </p>
-			<router-link :to="'flavour/' + flavourName + '/'">
-				<p> Edit </p>
-			</router-link>
+		<div v-for='(card, index) in cards' :key='card.name'>
+			<p> {{ card.name }} </p>
 		</div>
 	</div>
 </template>
+
+<script>
+	import { mapState } from 'vuex'
+
+	export default {
+		computed: {
+			cards() {
+				return this.$store.state.decks[this.$route.params.deckIndex].cards
+			}
+		}
+	}
+</script>
