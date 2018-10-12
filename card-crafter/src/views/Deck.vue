@@ -1,8 +1,8 @@
 <template>
 	<div>
-		<div v-for='(card, index) in cards' :key='card.name'>
-			<p> {{ card.name }} </p>
-		</div>
+		<router-link v-for='(card, index) in cards' :key='card.name' :to='"/deck/" + $route.params.deckIndex + "/card/" + index'>
+			<div> {{ card.name }} </div>
+		</router-link>
 	</div>
 </template>
 

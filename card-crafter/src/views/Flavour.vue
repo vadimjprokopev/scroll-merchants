@@ -3,7 +3,7 @@
 		<card-preview :cardElements='flavour.cardElements'/>
 		<h3> {{ flavour.name }} </h3>
 		<!-- <button @click='addCardElement'>Add</button> -->
-		<cardText v-for='cardElement in flavour.cardElements' :cardElement='cardElement'/>
+		<card-text v-for='cardElement in flavour.cardElements' :cardElement='cardElement'/>
 	</div>
 </template>
 

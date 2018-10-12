@@ -5,47 +5,47 @@ Vue.use(Vuex)
 
 const decks = {
 	state: [
-			{
-				name: "deck1",
-				cards: [
-					{
-						name: "card1",
-						number : 2,
-						flavours : [
-							"flavourName1"
-						]
-					},
-					{
-						name: "card2",
-						number : 3,
-						flavours : [
-							"flavourName1",
-							"flavourName2"
-						]
-					}
-				]
-			},
-			{
-				name: "deck2",
-				cards: [
-					{
-						name: "card3",
-						number : 2,
-						flavours : [
-							"flavourName1"
-						]
-					},
-					{
-						name: "card4",
-						number : 1,
-						flavours : [
-							"flavourName1",
-							"flavourName2"
-						]
-					},
-				]
-			}
-		]
+		{
+			name: "deck1",
+			cards: [
+				{
+					name: "card1",
+					number : 2,
+					flavours : [
+						0
+					]
+				},
+				{
+					name: "card2",
+					number : 3,
+					flavours : [
+						0,
+						1
+					]
+				}
+			]
+		},
+		{
+			name: "deck2",
+			cards: [
+				{
+					name: "card3",
+					number : 2,
+					flavours : [
+						1
+					]
+				},
+				{
+					name: "card4",
+					number : 1,
+					flavours : [
+						1,
+						2
+					]
+				},
+			]
+		}
+	]
 }
 
 const flavours = {
@@ -71,7 +71,7 @@ const flavours = {
 				{
 					text : "text3",
 					x : 200,
-					y : 100
+					y : 150
 				},
 				{
 					text : "text4",
@@ -86,7 +86,7 @@ const flavours = {
 				{
 					text : "text5",
 					x : 50,
-					y : 100
+					y : 50
 				},
 				{
 					text : "text6",
