@@ -1,18 +1,53 @@
 <template>
 	<div>
 		<label>Text</label>
-		<input v-model='cardElement.text'>
+		<input v-model='cardText'>
 		<label>x</label>
-		<input v-model.number='cardElement.x' type='number'>
+		<input v-model.number='cardX' type='number'>
 		<label>y</label>
-		<input v-model.number='cardElement.y' type='number'>
+		<input v-model.number='cardY' type='number'>
 	</div>
 </template>
 
 <script>
+	import { mapMutations } from 'vuex'
+
 	export default {
 		props: {
-			cardElement: Object
+			flavourIndex: Number,
+			cardElementIndex: Number
+		},
+		computed: {
+			cardElement() {
+					return this.$store.state.flavours[this.flavourIndex].cardElements[this.cardElementIndex]
+			},
+			cardText: {
+				get() {
+					return this.cardElement.text
+				},
+				set (newText) {
+					this.editCardText({flavourIndex: this.flavourIndex, cardElementIndex: this.cardElementIndex, text: newText})
+				}
+			},
+			cardX: {
+				get() {
+					return this.cardElement.x
+				},
+				set (newX) {
+					this.editCardX({flavourIndex: this.flavourIndex, cardElementIndex: this.cardElementIndex, x: newX})
+				}
+			},
+			cardY: {
+				get() {
+					return this.cardElement.y
+				},
+				set (newY) {
+					this.editCardY({flavourIndex: this.flavourIndex, cardElementIndex: this.cardElementIndex, y: newY})
+				}
+			}
+		},
+		methods: {
+			...mapMutations(['editCardText', 'editCardX', 'editCardY'])
 		}
 	}
 </script>

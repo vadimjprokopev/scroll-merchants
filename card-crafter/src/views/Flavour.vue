@@ -2,8 +2,7 @@
 	<div>
 		<card-preview :cardElements='flavour.cardElements'/>
 		<h3> {{ flavour.name }} </h3>
-		<!-- <button @click='addCardElement'>Add</button> -->
-		<card-text v-for='cardElement in flavour.cardElements' :cardElement='cardElement'/>
+		<card-text v-for='(element, index) in flavour.cardElements' :flavourIndex='Number($route.params.flavourIndex)' :cardElementIndex='index'/>
 	</div>
 </template>
 
@@ -12,11 +11,11 @@
 	import CardText from '@/components/CardText.vue'
 
 	export default {
-		components : {
+		components: {
 			CardPreview,
 			CardText
 		},
-		computed : {
+		computed: {
 			flavour() {
 				return this.$store.state.flavours[this.$route.params.flavourIndex]
 			}

@@ -4,101 +4,31 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const decks = {
-	state: [
-		{
-			name: "deck1",
-			cards: [
-				{
-					name: "card1",
-					number : 2,
-					flavours : [
-						0
-					]
-				},
-				{
-					name: "card2",
-					number : 3,
-					flavours : [
-						0,
-						1
-					]
-				}
-			]
-		},
-		{
-			name: "deck2",
-			cards: [
-				{
-					name: "card3",
-					number : 2,
-					flavours : [
-						1
-					]
-				},
-				{
-					name: "card4",
-					number : 1,
-					flavours : [
-						1,
-						2
-					]
-				},
-			]
+	state: [],
+	mutations: {
+		setCardNumber(state, {deckIndex, cardIndex, number}) {
+			state[deckIndex].cards[cardIndex].number = number
 		}
-	]
+	}
 }
 
 const flavours = {
-	state: [
-		{
-			name: "flavour1",
-			cardElements : [
-				{
-					text : "text1",
-					x : 100,
-					y : 100
-				},
-				{
-					text : "text2",
-					x : 200,
-					y : 100
-				}
-			]
+	state: [],
+	mutations: {
+		editCardText(state, {flavourIndex, cardElementIndex, text}) {
+			state[flavourIndex].cardElements[cardElementIndex].text = text;
 		},
-		{
-			name: "flavour2",
-			cardElements : [
-				{
-					text : "text3",
-					x : 200,
-					y : 150
-				},
-				{
-					text : "text4",
-					x : 200,
-					y : 50
-				}
-			]
+		editCardX(state, {flavourIndex, cardElementIndex, x}) {
+			state[flavourIndex].cardElements[cardElementIndex].x = x;
 		},
-		{
-			name: "flavour3",
-			cardElements : [
-				{
-					text : "text5",
-					x : 50,
-					y : 50
-				},
-				{
-					text : "text6",
-					x : 50,
-					y : 100
-				}
-			]
+		editCardY(state, {flavourIndex, cardElementIndex, y}) {
+			state[flavourIndex].cardElements[cardElementIndex].y = y;
 		}
-	]
+	}
 }
 
 export default new Vuex.Store({
+	strict: process.env.NODE_ENV !== 'production',
 	modules: {
 		decks,
 		flavours
