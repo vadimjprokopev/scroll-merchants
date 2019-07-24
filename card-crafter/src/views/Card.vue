@@ -1,7 +1,6 @@
 <template>
 	<div>
 		<card-preview :cardElements='allCardElements'/>
-		<input v-model.number='cardNumber' type='number'>
 		<div v-for='flavourIndex in card.flavours' :key='flavourIndex'>
 				{{ flavours[flavourIndex].name }}
 		</div>
@@ -10,23 +9,14 @@
 
 <script>
 	import CardPreview from '@/components/CardPreview.vue'
-	import { mapMutations } from 'vuex'
-
+	
 	export default {
 		components: {
 			CardPreview
 		},
 		computed: {
 			card() {
-				return this.$store.state.decks[this.$route.params.deckIndex].cards[this.$route.params.cardIndex]
-			},
-			cardNumber: {
-				get() {
-						return this.card.number
-				},
-				set(newNumber) {
-					this.setCardNumber({deckIndex: this.$route.params.deckIndex, cardIndex: this.$route.params.cardIndex, number: newNumber})
-				}
+				return this.$store.state.cards[this.$route.params.cardIndex]
 			},
 			flavours() {
 				return this.$store.state.flavours
@@ -36,9 +26,6 @@
 														.map((object) => object.cardElements)
 														.flat(1)
 			}
-		},
-		methods: {
-			...mapMutations(['setCardNumber'])
 		}
 	}
 </script>
