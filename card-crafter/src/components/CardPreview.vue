@@ -1,6 +1,6 @@
 <template>
 	<div class='card'>
-		<floatingText v-for='cardElement in cardElements' :cardElement='cardElement'/>
+		<floatingText v-for='cardElement in cardElements' :cardElement='cardElement' :key='cardElement.index'/>
 	</div>
 </template>
 

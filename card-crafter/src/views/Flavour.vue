@@ -2,7 +2,7 @@
 	<div>
 		<card-preview :cardElements='flavour.cardElements'/>
 		<h3> {{ flavour.name }} </h3>
-		<card-text v-for='(element, index) in flavour.cardElements' :flavourIndex='Number($route.params.flavourIndex)' :cardElementIndex='index'/>
+		<card-text v-for='(element, index) in flavour.cardElements' :key='index' :flavourIndex='Number($route.params.flavourIndex)' :cardElementIndex='index'/>
 	</div>
 </template>
 

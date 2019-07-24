@@ -2,7 +2,7 @@
 	<div>
 		<card-preview :cardElements='allCardElements'/>
 		<input v-model.number='cardNumber' type='number'>
-		<div v-for='flavourIndex in card.flavours'>
+		<div v-for='flavourIndex in card.flavours' :key='flavourIndex'>
 				{{ flavours[flavourIndex].name }}
 		</div>
 	</div>
