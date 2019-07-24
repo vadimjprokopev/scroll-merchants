@@ -23,6 +23,9 @@ const flavours = {
 		},
 		editCardY(state, {flavourIndex, cardElementIndex, y}) {
 			state[flavourIndex].cardElements[cardElementIndex].y = y;
+		},
+		deleteCardText(state, {flavourIndex, cardElementIndex}) {
+			state[flavourIndex].cardElements.splice(cardElementIndex, 1)
 		}
 	}
 }

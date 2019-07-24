@@ -6,6 +6,7 @@
 		<input v-model.number='cardX' type='number'>
 		<label>y</label>
 		<input v-model.number='cardY' type='number'>
+		<button @click='deleteCurrentCardText'>Delete</button>
 	</div>
 </template>
 
@@ -47,7 +48,11 @@
 			}
 		},
 		methods: {
-			...mapMutations(['editCardText', 'editCardX', 'editCardY'])
+			deleteCurrentCardText() {
+				this.deleteCardText({flavourIndex: this.flavourIndex, cardElementIndex: this.cardElementIndex})
+			},
+
+			...mapMutations(['editCardText', 'editCardX', 'editCardY', 'deleteCardText'])
 		}
 	}
 </script>
