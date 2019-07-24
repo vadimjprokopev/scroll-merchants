@@ -26,6 +26,9 @@ const flavours = {
 		},
 		deleteCardText(state, {flavourIndex, cardElementIndex}) {
 			state[flavourIndex].cardElements.splice(cardElementIndex, 1)
+		},
+		createCardText(state, flavourIndex) {
+			state[flavourIndex].cardElements.push({text: '', x: 0, y: 0})
 		}
 	}
 }
