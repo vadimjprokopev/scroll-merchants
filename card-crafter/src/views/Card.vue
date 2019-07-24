@@ -5,7 +5,6 @@
 		<div v-for='flavourIndex in card.flavours'>
 				{{ flavours[flavourIndex].name }}
 		</div>
-		</ul>
 	</div>
 </template>
 
