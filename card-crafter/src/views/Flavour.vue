@@ -2,7 +2,7 @@
 	<div>
 		<card-preview :cardElements='flavour.cardElements'/>
 		<h3> {{ flavour.name }} </h3>
-		<card-text v-for='(element, index) in flavour.cardElements' :key='index' :flavourIndex='Number($route.params.flavourIndex)' :cardElementIndex='index'/>
+		<card-text v-for='(element, index) in flavour.cardElements' :key='index' :cardElementIndex='index'/>
 		<button @click='createCardTextToCurrentFlavour'>Create new text</button>
 	</div>
 </template>
@@ -19,12 +19,12 @@
 		},
 		computed: {
 			flavour() {
-				return this.$store.state.flavours[this.$route.params.flavourIndex]
+				return this.$store.state.flavours.find(flavour => flavour.id === this.$route.params.flavourId)
 			}
 		},
 		methods: {
 			createCardTextToCurrentFlavour() {
-				this.createCardText(this.$route.params.flavourIndex)
+				this.createCardText(this.$route.params.flavourId)
 			},
 
 			...mapMutations(['createCardText'])

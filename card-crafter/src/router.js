@@ -22,7 +22,7 @@ export default new Router({
 			component : Card
 		},
 		{
-			path : '/flavour/:flavourIndex',
+			path : '/flavour/:flavourId',
 			component : Flavour
 		}
 	]

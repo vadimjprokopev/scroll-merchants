@@ -15,19 +15,19 @@
 
 	export default {
 		props: {
-			flavourIndex: Number,
+			flavourId: Number,
 			cardElementIndex: Number
 		},
 		computed: {
 			cardElement() {
-					return this.$store.state.flavours[this.flavourIndex].cardElements[this.cardElementIndex]
+					return this.$store.state.flavours.find(flavour => flavour.id === this.$route.params.flavourId).cardElements[this.cardElementIndex]
 			},
 			cardText: {
 				get() {
 					return this.cardElement.text
 				},
 				set (newText) {
-					this.editCardText({flavourIndex: this.flavourIndex, cardElementIndex: this.cardElementIndex, text: newText})
+					this.editCardText({flavourId: this.$route.params.flavourId, cardElementIndex: this.cardElementIndex, text: newText})
 				}
 			},
 			cardX: {
@@ -35,7 +35,7 @@
 					return this.cardElement.x
 				},
 				set (newX) {
-					this.editCardX({flavourIndex: this.flavourIndex, cardElementIndex: this.cardElementIndex, x: newX})
+					this.editCardX({flavourId: this.$route.params.flavourId, cardElementIndex: this.cardElementIndex, x: newX})
 				}
 			},
 			cardY: {
@@ -43,13 +43,13 @@
 					return this.cardElement.y
 				},
 				set (newY) {
-					this.editCardY({flavourIndex: this.flavourIndex, cardElementIndex: this.cardElementIndex, y: newY})
+					this.editCardY({flavourId: this.$route.params.flavourId, cardElementIndex: this.cardElementIndex, y: newY})
 				}
 			}
 		},
 		methods: {
 			deleteCurrentCardText() {
-				this.deleteCardText({flavourIndex: this.flavourIndex, cardElementIndex: this.cardElementIndex})
+				this.deleteCardText({flavourId: this.$route.params.flavourId, cardElementIndex: this.cardElementIndex})
 			},
 
 			...mapMutations(['editCardText', 'editCardX', 'editCardY', 'deleteCardText'])

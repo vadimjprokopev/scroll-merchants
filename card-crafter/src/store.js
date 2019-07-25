@@ -19,20 +19,23 @@ const decks = {
 const flavours = {
 	state: [],
 	mutations: {
-		editCardText(state, {flavourIndex, cardElementIndex, text}) {
-			state[flavourIndex].cardElements[cardElementIndex].text = text;
+		createFlavour(state) {
+			state.push({id: uuid(), name: 'New Flavour', cardElements: []})
 		},
-		editCardX(state, {flavourIndex, cardElementIndex, x}) {
-			state[flavourIndex].cardElements[cardElementIndex].x = x;
+		editCardText(state, {flavourId, cardElementIndex, text}) {
+			state.find(flavour => flavour.id === flavourId).cardElements[cardElementIndex].text = text;
 		},
-		editCardY(state, {flavourIndex, cardElementIndex, y}) {
-			state[flavourIndex].cardElements[cardElementIndex].y = y;
+		editCardX(state, {flavourId, cardElementIndex, x}) {
+			state.find(flavour => flavour.id === flavourId).cardElements[cardElementIndex].x = x;
 		},
-		deleteCardText(state, {flavourIndex, cardElementIndex}) {
-			state[flavourIndex].cardElements.splice(cardElementIndex, 1)
+		editCardY(state, {flavourId, cardElementIndex, y}) {
+			state.find(flavour => flavour.id === flavourId).cardElements[cardElementIndex].y = y;
 		},
-		createCardText(state, flavourIndex) {
-			state[flavourIndex].cardElements.push({text: '', x: 0, y: 0})
+		deleteCardText(state, {flavourId, cardElementIndex}) {
+			state.find(flavour => flavour.id === flavourId).cardElements.splice(cardElementIndex, 1)
+		},
+		createCardText(state, flavourId) {
+			state.find(flavour => flavour.id === flavourId).cardElements.push({text: '', x: 0, y: 0})
 		}
 	}
 }
