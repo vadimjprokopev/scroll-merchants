@@ -16,6 +16,14 @@ const decks = {
 	}
 }
 
+const cards = {
+	state: [],
+	mutations: {
+		createCard(state) {
+			state.push({id: uuid(), name: 'New Card', flavours: []})
+		}
+	}
+}
 const flavours = {
 	state: [],
 	mutations: {
@@ -44,6 +52,7 @@ export default new Vuex.Store({
 	strict: process.env.NODE_ENV !== 'production',
 	modules: {
 		decks,
+		cards,
 		flavours
 	}
 })

@@ -14,7 +14,7 @@
 				return this.$store.state.decks.find(deck => deck.id === this.$route.params.deckId)
 			},
 			cards() {
-				return this.$store.state.decks[this.$route.params.deckIndex].cards
+				return this.$store.state.cards.filter(card => this.deck.cards.include(card.id))
 			}
 		}
 	}

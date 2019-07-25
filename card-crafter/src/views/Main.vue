@@ -5,10 +5,13 @@
 			<div> {{ deck.name }} </div>
 		</router-link>
 		<button @click='createDeck'>Create new deck</button>
+
 		<h3>Cards:</h3>
-		<router-link v-for='(card, index) in cards' :to="'card/' + index + '/'" :key="card.name">
+		<router-link v-for='card in cards' :to="'card/' + card.id + '/'" :key="card.id">
 			<div> {{ card.name }} </div>
 		</router-link>
+		<button @click='createCard'>Create new card</button>
+
 		<h3>Flavours:</h3>
 		<router-link v-for='flavour in flavours' :to="'flavour/' + flavour.id + '/'" :key="flavour.id">
 			<div> {{ flavour.name }} </div>
@@ -25,7 +28,7 @@
 			...mapState(['decks', 'cards', 'flavours'])
 		},
 		methods: {
-			...mapMutations(['createDeck', 'createFlavour'])
+			...mapMutations(['createDeck', 'createCard', 'createFlavour'])
 		}
 	}
 </script>

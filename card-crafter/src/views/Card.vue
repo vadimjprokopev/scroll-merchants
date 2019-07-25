@@ -1,30 +1,30 @@
 <template>
 	<div>
 		<card-preview :cardElements='allCardElements'/>
-		<div v-for='flavourIndex in card.flavours' :key='flavourIndex'>
-				{{ flavours[flavourIndex].name }}
+		<div v-for='flavour in flavours' :key='flavour.id'>
+			{{ flavour.name }}
 		</div>
+		<h3> {{ card.name }} </h3>
 	</div>
 </template>
 
 <script>
 	import CardPreview from '@/components/CardPreview.vue'
-	
+	import { mapMutations } from 'vuex'
+
 	export default {
 		components: {
 			CardPreview
 		},
 		computed: {
 			card() {
-				return this.$store.state.cards[this.$route.params.cardIndex]
+				return this.$store.state.cards.find(card => card.id === this.$route.params.cardId)
 			},
 			flavours() {
-				return this.$store.state.flavours
+				return this.$store.state.flavours.filter(flavour => this.card.flavours.includes(flavour.id))
 			},
 			allCardElements() {
-				return this.flavours.filter((object, index) => this.card.flavours.includes(index))
-														.map((object) => object.cardElements)
-														.flat(1)
+				return this.flavours.map(flavour => flavour.cardElements).flat(1)
 			}
 		}
 	}
