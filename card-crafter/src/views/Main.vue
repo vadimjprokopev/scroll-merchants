@@ -1,9 +1,10 @@
 <template>
 	<div>
 		<h3>Decks:</h3>
-		<router-link v-for='(deck, index) in decks' :to="'deck/' + index + '/'" :key="deck.name">
+		<router-link v-for='deck in decks' :to="'deck/' + deck.id + '/'" :key="deck.id">
 			<div> {{ deck.name }} </div>
 		</router-link>
+		<button @click='createDeck'>Create new deck</button>
 		<h3>Cards:</h3>
 		<router-link v-for='(card, index) in cards' :to="'card/' + index + '/'" :key="card.name">
 			<div> {{ card.name }} </div>
@@ -16,11 +17,14 @@
 </template>
 
 <script>
-	import { mapState } from 'vuex'
+	import { mapState, mapMutations } from 'vuex'
 
 	export default {
 		computed: {
 			...mapState(['decks', 'cards', 'flavours'])
+		},
+		methods: {
+			...mapMutations(['createDeck'])
 		}
 	}
 </script>

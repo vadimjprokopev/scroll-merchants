@@ -14,7 +14,7 @@ export default new Router({
 			component: Main
 		},
 		{
-			path : '/deck/:deckIndex',
+			path : '/deck/:deckId',
 			component : Deck
 		},
 		{

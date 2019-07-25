@@ -1,11 +1,15 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import uuid from 'uuidv4'
 
 Vue.use(Vuex)
 
 const decks = {
 	state: [],
 	mutations: {
+		createDeck(state) {
+			state.push({id: uuid(), name: 'New Deck', cards: []})
+		},
 		setCardNumber(state, {deckIndex, cardIndex, number}) {
 			state[deckIndex].cards[cardIndex].number = number
 		}
