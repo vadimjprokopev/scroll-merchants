@@ -21,9 +21,13 @@ const cards = {
 	mutations: {
 		createCard(state) {
 			state.push({id: uuid(), name: 'New Card', flavours: []})
+		},
+		updateCardFlavours(state, {cardId, flavours}) {
+			state.find(card => card.id === cardId).flavours = flavours
 		}
 	}
 }
+
 const flavours = {
 	state: [],
 	mutations: {

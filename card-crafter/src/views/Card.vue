@@ -1,10 +1,8 @@
 <template>
 	<div>
 		<card-preview :cardElements='allCardElements'/>
-		<div v-for='flavour in flavours' :key='flavour.id'>
-			{{ flavour.name }}
-		</div>
 		<h3> {{ card.name }} </h3>
+		<multiselect :multiple=true label='name' track-by='id' :options='possibleFlavours' :value='flavours' @input='updateFlavours'></multiselect>
 	</div>
 </template>
 
@@ -23,9 +21,18 @@
 			flavours() {
 				return this.$store.state.flavours.filter(flavour => this.card.flavours.includes(flavour.id))
 			},
+			possibleFlavours() {
+				return this.$store.state.flavours.filter(flavour => !this.card.flavours.includes(flavour.id))
+			},
 			allCardElements() {
 				return this.flavours.map(flavour => flavour.cardElements).flat(1)
 			}
+		},
+		methods: {
+			updateFlavours(flavours) {
+				this.updateCardFlavours({cardId: this.card.id, flavours: flavours.map(flavour => flavour.id)})
+			},
+			...mapMutations(['updateCardFlavours'])
 		}
 	}
 </script>
