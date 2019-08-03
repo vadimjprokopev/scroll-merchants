@@ -4,6 +4,8 @@ import router from "./router";
 import store from "./store";
 import Multiselect from "vue-multiselect";
 import "vue-multiselect/dist/vue-multiselect.min.css";
+import "vue-material/dist/vue-material.min.css";
+import "vue-material/dist/theme/default.css";
 
 Vue.config.productionTip = false;
 Vue.component("multiselect", Multiselect);
