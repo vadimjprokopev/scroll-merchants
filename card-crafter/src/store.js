@@ -10,8 +10,20 @@ const decks = {
     createDeck(state) {
       state.push({ id: uuid(), name: "New Deck", cards: [] });
     },
-    setCardNumber(state, { deckIndex, cardIndex, number }) {
-      state[deckIndex].cards[cardIndex].number = number;
+    addCardToDeck(state, { deckId, cardId }) {
+      state
+        .find(deck => deck.id === deckId)
+        .cards.push({ id: cardId, amount: 1 });
+    },
+    setDeckCardAmount(state, { deckId, cardId, newAmount }) {
+      state
+        .find(deck => deck.id === deckId)
+        .cards.find(card => card.id === cardId).amount = newAmount;
+    },
+    deleteCardFromDeck(state, { deckId, cardId }) {
+      state.find(deck => deck.id === deckId).cards = state
+        .find(deck => deck.id === deckId)
+        .cards.filter(card => card.id !== cardId);
     }
   }
 };
