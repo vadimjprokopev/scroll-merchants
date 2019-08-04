@@ -1,6 +1,5 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Main from "./views/Main.vue";
 import Deck from "./views/Deck.vue";
 import Card from "./views/Card.vue";
 import Flavour from "./views/Flavour.vue";
@@ -8,21 +7,18 @@ import Flavour from "./views/Flavour.vue";
 Vue.use(Router);
 
 export default new Router({
+  mode: "history",
   routes: [
     {
-      path: "/",
-      component: Main
-    },
-    {
-      path: "/deck/:deckId",
+      path: "/decks/:deckId",
       component: Deck
     },
     {
-      path: "/card/:cardId",
+      path: "/cards/:cardId",
       component: Card
     },
     {
-      path: "/flavour/:flavourId",
+      path: "/flavours/:flavourId",
       component: Flavour
     }
   ]

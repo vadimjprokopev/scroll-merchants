@@ -3,12 +3,15 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import Multiselect from "vue-multiselect";
+import { MdButton, MdTabs } from "vue-material/dist/components";
 import "vue-multiselect/dist/vue-multiselect.min.css";
 import "vue-material/dist/vue-material.min.css";
 import "vue-material/dist/theme/default.css";
 
 Vue.config.productionTip = false;
 Vue.component("multiselect", Multiselect);
+Vue.use(MdTabs);
+Vue.use(MdButton);
 
 new Vue({
   router,
