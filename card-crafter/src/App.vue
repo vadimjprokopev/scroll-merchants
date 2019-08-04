@@ -14,7 +14,9 @@
         <the-flavours />
       </md-tab>
     </md-tabs>
-    <router-view />
+    <transition name="fade">
+      <router-view />
+    </transition>
   </div>
 </template>
 
@@ -39,5 +41,22 @@ export default {
 
 #app {
   text-align: center;
+}
+
+.fade-enter {
+    opacity: 0;
+}
+
+.fade-enter-active {
+    transition: opacity 0.35s ease-in-out;
+}
+
+.fade-leave {
+
+}
+
+.fade-leave-active {
+    transition: opacity 0.35s ease-in-out;
+    opacity: 0;
 }
 </style>
