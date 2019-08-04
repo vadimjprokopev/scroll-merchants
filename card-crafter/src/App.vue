@@ -15,7 +15,7 @@
       </md-tab>
     </md-tabs>
     <transition name="fade">
-      <router-view />
+      <router-view class="router-content" />
     </transition>
   </div>
 </template>
@@ -43,20 +43,21 @@ export default {
   text-align: center;
 }
 
+.router-content {
+  width: 960px;
+  margin: auto;
+}
+
 .fade-enter {
-    opacity: 0;
+  opacity: 0;
 }
 
 .fade-enter-active {
-    transition: opacity 0.35s ease-in-out;
-}
-
-.fade-leave {
-
+  transition: opacity 0.35s ease-in-out;
 }
 
 .fade-leave-active {
-    transition: opacity 0.35s ease-in-out;
-    opacity: 0;
+  transition: opacity 0.35s ease-in-out;
+  opacity: 0;
 }
 </style>
