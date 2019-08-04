@@ -3,7 +3,12 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import Multiselect from "vue-multiselect";
-import { MdButton, MdTabs, MdField } from "vue-material/dist/components";
+import {
+  MdButton,
+  MdTabs,
+  MdField,
+  MdCard
+} from "vue-material/dist/components";
 import "vue-multiselect/dist/vue-multiselect.min.css";
 import "vue-material/dist/vue-material.min.css";
 import "vue-material/dist/theme/default.css";
@@ -13,6 +18,7 @@ Vue.component("multiselect", Multiselect);
 Vue.use(MdTabs);
 Vue.use(MdButton);
 Vue.use(MdField);
+Vue.use(MdCard);
 
 new Vue({
   router,
