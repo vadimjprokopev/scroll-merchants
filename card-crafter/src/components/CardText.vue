@@ -27,16 +27,8 @@
 import { mapMutations } from "vuex";
 
 export default {
-  props: {
-    flavourId: Number,
-    cardElementIndex: Number
-  },
+  props: ["cardElement"],
   computed: {
-    cardElement() {
-      return this.$store.state.flavours.find(
-        flavour => flavour.id === this.$route.params.flavourId
-      ).cardElements[this.cardElementIndex];
-    },
     cardText: {
       get() {
         return this.cardElement.text;
@@ -44,7 +36,7 @@ export default {
       set(newText) {
         this.editCardText({
           flavourId: this.$route.params.flavourId,
-          cardElementIndex: this.cardElementIndex,
+          cardElementId: this.cardElement.id,
           text: newText
         });
       }
@@ -56,7 +48,7 @@ export default {
       set(newX) {
         this.editCardX({
           flavourId: this.$route.params.flavourId,
-          cardElementIndex: this.cardElementIndex,
+          cardElementId: this.cardElement.id,
           x: newX
         });
       }
@@ -68,7 +60,7 @@ export default {
       set(newY) {
         this.editCardY({
           flavourId: this.$route.params.flavourId,
-          cardElementIndex: this.cardElementIndex,
+          cardElementId: this.cardElement.id,
           y: newY
         });
       }
@@ -78,7 +70,7 @@ export default {
     deleteCurrentCardText() {
       this.deleteCardText({
         flavourId: this.$route.params.flavourId,
-        cardElementIndex: this.cardElementIndex
+        cardElementId: this.cardElement.id
       });
     },
 

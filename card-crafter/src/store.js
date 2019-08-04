@@ -46,30 +46,36 @@ const flavours = {
     createFlavour(state) {
       state.push({ id: uuid(), name: "New Flavour", cardElements: [] });
     },
-    editCardText(state, { flavourId, cardElementIndex, text }) {
-      state.find(flavour => flavour.id === flavourId).cardElements[
-        cardElementIndex
-      ].text = text;
-    },
-    editCardX(state, { flavourId, cardElementIndex, x }) {
-      state.find(flavour => flavour.id === flavourId).cardElements[
-        cardElementIndex
-      ].x = x;
-    },
-    editCardY(state, { flavourId, cardElementIndex, y }) {
-      state.find(flavour => flavour.id === flavourId).cardElements[
-        cardElementIndex
-      ].y = y;
-    },
-    deleteCardText(state, { flavourId, cardElementIndex }) {
+    editCardText(state, { flavourId, cardElementId, text }) {
       state
         .find(flavour => flavour.id === flavourId)
-        .cardElements.splice(cardElementIndex, 1);
+        .cardElements.find(
+          cardElement => cardElement.id === cardElementId
+        ).text = text;
+    },
+    editCardX(state, { flavourId, cardElementId, x }) {
+      state
+        .find(flavour => flavour.id === flavourId)
+        .cardElements.find(
+          cardElement => cardElement.id === cardElementId
+        ).x = x;
+    },
+    editCardY(state, { flavourId, cardElementId, y }) {
+      state
+        .find(flavour => flavour.id === flavourId)
+        .cardElements.find(
+          cardElement => cardElement.id === cardElementId
+        ).y = y;
+    },
+    deleteCardText(state, { flavourId, cardElementId }) {
+      state.find(flavour => flavour.id === flavourId).cardElements = state
+        .find(flavour => flavour.id === flavourId)
+        .cardElements.filter(cardElement => cardElement.id !== cardElementId);
     },
     createCardText(state, flavourId) {
       state
         .find(flavour => flavour.id === flavourId)
-        .cardElements.push({ text: "", x: 0, y: 0 });
+        .cardElements.push({ id: uuid(), text: "Text", x: 0, y: 0 });
     }
   }
 };
