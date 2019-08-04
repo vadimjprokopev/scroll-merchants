@@ -1,12 +1,25 @@
 <template>
-  <div>
-    <label>Text</label>
-    <input v-model="cardText" />
-    <label>x</label>
-    <input v-model.number="cardX" type="number" />
-    <label>y</label>
-    <input v-model.number="cardY" type="number" />
-    <md-button class="md-accent md-raised md-dense" @click="deleteCurrentCardText">Delete</md-button>
+  <div class="cardText">
+    <md-field>
+      <label>Text</label>
+      <md-input v-model="cardText"></md-input>
+    </md-field>
+
+    <md-field>
+      <label>x</label>
+      <md-input v-model.number="cardX" type="number" />
+    </md-field>
+
+    <md-field>
+      <label>y</label>
+      <md-input v-model.number="cardY" type="number" />
+    </md-field>
+
+    <md-button
+      class="md-accent md-raised md-dense"
+      @click="deleteCurrentCardText"
+      >Delete</md-button
+    >
   </div>
 </template>
 
@@ -78,3 +91,10 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.cardText {
+  width: 240px;
+  margin: auto;
+}
+</style>

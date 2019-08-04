@@ -7,7 +7,9 @@
     >
       <div>{{ flavour.name }}</div>
     </router-link>
-    <md-button class="md-primary md-raised" @click="createFlavour">Create new flavour</md-button>
+    <md-button class="md-primary md-raised" @click="createFlavour">
+      Create new flavour
+    </md-button>
   </div>
 </template>
 

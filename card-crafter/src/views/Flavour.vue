@@ -7,7 +7,11 @@
       :key="index"
       :cardElementIndex="index"
     />
-    <md-button class="md-primary md-raised md-dense" @click="createCardTextToCurrentFlavour">Create new text</md-button>
+    <md-button
+      class="md-primary md-raised"
+      @click="createCardTextToCurrentFlavour"
+      >Create new text</md-button
+    >
   </div>
 </template>
 

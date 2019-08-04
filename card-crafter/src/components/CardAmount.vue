@@ -1,12 +1,17 @@
 <template>
   <div>
-    <span> {{ card.name }} </span>
-    <span>
-      <input v-model.number="cardAmount" type="number" />
-    </span>
-    <span>
-      <md-button class="md-accent md-raised md-dense" @click="deleteCardFromDeckAction">Delete card</md-button>
-    </span>
+    <div class="card-amount-row">
+      <p class="card-name">{{ card.name }}</p>
+      <md-field class="card-amount">
+        <label> Card amount </label>
+        <md-input v-model.number="cardAmount" type="number"></md-input>
+      </md-field>
+    </div>
+    <md-button
+      class="md-accent md-raised md-dense"
+      @click="deleteCardFromDeckAction"
+      >Delete card</md-button
+    >
   </div>
 </template>
 
@@ -41,3 +46,19 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.card-amount-row {
+  display: flex;
+  width: 480px;
+  margin: auto;
+}
+
+.card-amount-row > * {
+  flex: 1 100%;
+}
+
+.card-name {
+  text-align: left;
+}
+</style>
