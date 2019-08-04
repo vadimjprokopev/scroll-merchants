@@ -5,7 +5,7 @@
       <input v-model.number="cardAmount" type="number" />
     </span>
     <span>
-      <button @click="deleteCardFromDeckAction">Delete card</button>
+      <md-button class="md-accent md-raised md-dense" @click="deleteCardFromDeckAction">Delete card</md-button>
     </span>
   </div>
 </template>

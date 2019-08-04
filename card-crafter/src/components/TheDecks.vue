@@ -3,7 +3,7 @@
     <router-link v-for="deck in decks" :to="'/decks/' + deck.id" :key="deck.id">
       <div>{{ deck.name }}</div>
     </router-link>
-    <button @click="createDeck">Create new deck</button>
+    <md-button class="md-primary md-raised" @click="createDeck">Create new deck</md-button>
   </div>
 </template>
 

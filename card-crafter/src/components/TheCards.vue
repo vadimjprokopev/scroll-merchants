@@ -3,7 +3,7 @@
     <router-link v-for="card in cards" :to="'/cards/' + card.id" :key="card.id">
       <div>{{ card.name }}</div>
     </router-link>
-    <button @click="createCard">Create new card</button>
+    <md-button class="md-primary md-raised" @click="createCard">Create new card</md-button>
   </div>
 </template>
 

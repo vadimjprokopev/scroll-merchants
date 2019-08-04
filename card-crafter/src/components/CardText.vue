@@ -6,7 +6,7 @@
     <input v-model.number="cardX" type="number" />
     <label>y</label>
     <input v-model.number="cardY" type="number" />
-    <button @click="deleteCurrentCardText">Delete</button>
+    <md-button class="md-accent md-raised md-dense" @click="deleteCurrentCardText">Delete</md-button>
   </div>
 </template>
 
