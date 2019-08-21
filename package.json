@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "cd client && vue-cli-service serve",
     "build": "cd client && vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "start": "node server/server.js"
+    "lint": "cd client && vue-cli-service lint",
+    "start": "node server/server.js",
+    "start:dev": "nodemon server/server.js & npm run serve"
   },
   "dependencies": {
     "express": "^4.17.1",
@@ -26,6 +27,7 @@
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "lint-staged": "^8.1.5",
+    "nodemon": "^1.19.1",
     "vue-template-compiler": "^2.5.17"
   },
   "eslintConfig": {
