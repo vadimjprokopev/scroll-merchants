@@ -3,6 +3,10 @@ version: "2"
 services:
   web:
     image: node:10-alpine
+    environment:
+      DATABASE_URL: postgres://user:password@db:5432/dev_database
+    depends_on:
+      - db
     working_dir: /usr/src/app
     volumes:
       - .:/usr/src/app
@@ -10,3 +14,16 @@ services:
       - 8080:8080
       - 5000:5000
     command: npm run start:dev
+  db:
+    image: postgres:11.5-alpine
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: dev_database
+    ports:
+      - 5432:5432
+    volumes:
+      - dev_database:/var/lib/postgresql/data
+
+volumes:
+  dev_database:
