@@ -89,5 +89,32 @@ module.exports = {
           });
         }
       });
+  },
+
+  checkToken: (req, res, next) => {
+    try {
+      let token = req.header("Authorization").split(" ")[1];
+      let decoded = jwt.verify(token, process.env.TOKEN_SECRET);
+
+      user
+        .findByPk(decoded.userId)
+        .then(user => {
+          req.user = user;
+          next();
+        })
+        .catch(() => {
+          res.status(404).json({
+            error: {
+              message: "User not found"
+            }
+          });
+        });
+    } catch (err) {
+      res.status(401).json({
+        error: {
+          message: "Failed to verify token"
+        }
+      });
+    }
   }
 };
