@@ -5,6 +5,7 @@ services:
     image: node:10-alpine
     environment:
       DATABASE_URL: postgres://user:password@db:5432/dev_database
+      TOKEN_SECRET: secret
     depends_on:
       - db
     working_dir: /usr/src/app
