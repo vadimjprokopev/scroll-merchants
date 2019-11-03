@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "cd client && vue-cli-service serve",
     "build": "npm run migrate up && cd client && vue-cli-service build",
-    "lint": "cd client && vue-cli-service lint",
+    "lint": "eslint --fix .",
     "start": "node server/server.js",
     "start:dev": "npm run migrate up && (nodemon server/server.js & npm run serve)",
     "migrate": "node-pg-migrate"
@@ -28,28 +28,18 @@
     "@vue/cli-plugin-eslint": "^3.9.2",
     "@vue/cli-service": "^3.9.3",
     "@vue/eslint-config-prettier": "^4.0.1",
-    "babel-eslint": "^10.0.1",
+    "babel-eslint": "^10.0.3",
     "eslint": "^5.16.0",
-    "eslint-plugin-vue": "^5.0.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-loader": "^3.0.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-vue": "^5.2.3",
     "lint-staged": "^8.1.5",
     "node-pg-migrate": "^3.22.0",
     "nodemon": "^1.19.1",
+    "prettier": "^1.18.2",
     "vue-template-compiler": "^2.5.17"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended",
-      "@vue/prettier"
-    ],
-    "rules": {},
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
   },
   "postcss": {
     "plugins": {
@@ -66,7 +56,7 @@
   },
   "lint-staged": {
     "*.{js,vue}": [
-      "vue-cli-service lint",
+      "eslint --fix",
       "git add"
     ]
   }
