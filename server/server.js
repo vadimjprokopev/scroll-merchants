@@ -1,11 +1,10 @@
 const express = require("express");
-const serveStatic = require("serve-static");
 const { register, login, checkToken } = require("./authentication.js");
 
 const app = express();
 
 app.use(express.json());
-app.use(serveStatic(__dirname + "/../client/dist"));
+app.use(express.static(__dirname + "/../client/dist"));
 
 app.post("/register", register);
 app.post("/login", login);
