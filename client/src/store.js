@@ -1,8 +1,27 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import uuid from "uuidv4";
+import axios from "axios";
 
 Vue.use(Vuex);
+
+const login = {
+  state: [],
+  actions: {
+    login(context, credentials) {
+      axios.post("/login", credentials).then(response => {
+        console.log(response);
+        // localStorage.setItem("token", response.token);
+      });
+    },
+    register(context, credentials) {
+      axios.post("/register", credentials).then(response => {
+        console.log(response);
+        // localStorage.setItem("token", response.token);
+      });
+    }
+  }
+};
 
 const decks = {
   state: [],
@@ -85,6 +104,7 @@ export default new Vuex.Store({
   modules: {
     decks,
     cards,
-    flavours
+    flavours,
+    login
   }
 });

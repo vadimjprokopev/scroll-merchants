@@ -1,19 +1,21 @@
 <template>
   <div id="app">
-    <md-tabs md-sync-route md-alignment="centered" md-dynamic-height>
-      <md-tab md-label="Home" to="/" exact>
-        <the-home />
-      </md-tab>
-      <md-tab md-label="Decks" to="/decks">
-        <the-decks />
-      </md-tab>
-      <md-tab md-label="Cards" to="/cards">
-        <the-cards />
-      </md-tab>
-      <md-tab md-label="Flavours" to="/flavours">
-        <the-flavours />
-      </md-tab>
-    </md-tabs>
+    <div v-if="$route.matched.some(record => record.requiresAuth)">
+      <md-tabs md-sync-route md-alignment="centered" md-dynamic-height>
+        <md-tab md-label="Home" to="/" exact>
+          <the-home />
+        </md-tab>
+        <md-tab md-label="Decks" to="/decks">
+          <the-decks />
+        </md-tab>
+        <md-tab md-label="Cards" to="/cards">
+          <the-cards />
+        </md-tab>
+        <md-tab md-label="Flavours" to="/flavours">
+          <the-flavours />
+        </md-tab>
+      </md-tabs>
+    </div>
     <transition name="fade">
       <router-view class="router-content" />
     </transition>

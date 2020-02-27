@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import Multiselect from "vue-multiselect";
+import axios from "axios";
 import {
   MdButton,
   MdTabs,
@@ -24,6 +25,15 @@ new Vue({
   router,
   store,
   mounted() {
+    if (process.env.NODE_ENV === "development") {
+      axios.defaults.baseURL = "https://localhost:5000";
+    }
+
+    const token = localStorage.getItem("token");
+    if (token) {
+      axios.defaults.headers.common["Authorization"] = token;
+    }
+
     store.subscribe((mutation, state) => {
       localStorage.setItem("cards", JSON.stringify(state));
     });
